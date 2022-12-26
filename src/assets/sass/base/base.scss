@@ -1,0 +1,31 @@
+/**/
+:root {
+    @extend %font__content !optional;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+ul,
+ol,
+menu {
+    list-style-type: none;
+    padding: 0;
+}
+figure {
+    margin: 0;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}

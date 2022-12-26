@@ -1,0 +1,28 @@
+/**/
+%pa{position: absolute;}
+%pr{position: relative;}
+%pf{position: fixed;}
+
+%go_tl{top:0;left:0;}
+%go_tr{top:0;right:0;}
+%go_bl{bottom:0;left:0;}
+%go_br{bottom:0;right:0;}
+%go_tbr{top:0;bottom:0;right:0;}
+%go_tbl{top:0;bottom:0;left:0;}
+%go_lrt{top:0;left:0;right:0;}
+%go_lrb{bottom:0;left:0;right:0;}
+
+%goa_tl{@extend %pa;top:0;left:0;}
+%goa_tr{@extend %pa;top:0;right:0;}
+%goa_bl{@extend %pa;bottom:0;left:0;}
+%goa_br{@extend %pa;bottom:0;right:0;}
+%goa_tbr{@extend %pa;top:0;bottom:0;right:0;}
+%goa_tbl{@extend %pa;top:0;bottom:0;left:0;}
+%goa_lrt{@extend %pa;top:0;left:0;right:0;}
+%goa_lrb{@extend %pa;bottom:0;left:0;right:0;}
+
+
+%df{display:flex;}
+%dfc{@extend %df;justify-content: center;align-items: center;}
+%dfch{@extend %df;justify-content: center;}
+%dfcv{@extend %df;align-items: center;}

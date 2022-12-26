@@ -1,0 +1,106 @@
+@import "main.scss";
+
+
+/***********************************/
+/***********************************/
+/***********************************/
+body{}
+
+
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  >header{
+    
+  }
+  >nav{
+
+  }
+  >main{
+    >section{
+    }
+    >article{
+    }
+    .carte{
+    }
+  }
+  >footer{
+    >h4{
+    }
+    >h5,>a{}
+    >h5{
+    }
+    >a{
+    }
+  }
+}
+
+/*
+@media all and (max-width:variables.$mobile){
+  body{
+    >header{
+      height:75px;
+      text-align: center;
+      >a{>i{}}
+      >img{}
+    }
+    >nav{
+      >form{
+        >input{}
+        >label{>i{}}
+      }
+      >section{
+        >h1{}
+        >p{}
+        >a{}
+      }
+    }
+    >main{
+      >section{}
+      >article{}
+    }
+    >footer{
+      >ul{}
+    }
+  }
+}
+@media all and (min-width:variables.$mobile) and (max-width:variables.$tablette){
+  body{
+    &>header{}
+    &>nav{}
+    &>main{
+      &>section{}
+      &>article{}
+    }
+    &>footer{
+      &>ul{}
+    }
+  }
+}
+@media all and (min-width:variables.$desktop) and (max-width:variables.$tv){
+  body{
+    &>header{}
+    &>nav{}
+    &>main{
+      &>section{}
+      &>article{}
+    }
+    &>footer{
+      &>ul{}
+    }
+  }
+}
+@media all and (min-width:variables.$tv){
+  body{
+    &>header{}
+    &>nav{}
+    &>main{
+      &>section{}
+      &>article{}
+    }
+    &>footer{
+      &>ul{}
+    }
+  }
+}
+*/
