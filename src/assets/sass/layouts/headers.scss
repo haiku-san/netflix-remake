@@ -1,29 +1,24 @@
 /**/
+
 header.header {
+    // position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(42, 42, 42);
     color: white;
-    @include from-desktop {
-        padding-left: $header-padding-responsive-left-and-right1;
-        padding-right: $header-padding-responsive-left-and-right1;
-        padding-top: $header-padding-responsive-top-and-bottom1;
-        padding-bottom: $header-padding-responsive-top-and-bottom1;
-    }
-    @include tablette-only {
-        padding-left: $header-padding-responsive-left-and-right2;
-        padding-right: $header-padding-responsive-left-and-right2;
-        padding-top: $header-padding-responsive-top-and-bottom2;
-        padding-bottom: $header-padding-responsive-top-and-bottom2;
-    }
-    @include mobile-only {
-        padding-left: $header-padding-responsive-left-and-right3;
-        padding-right: $header-padding-responsive-left-and-right3;
-        padding-top: $header-padding-responsive-top-and-bottom3;
-        padding-bottom: $header-padding-responsive-top-and-bottom3;
-    }
+    padding: var(--header-padding);
+    // &::after {
+    //     content: '';
+    //     z-index: 100;
+    //     position: absolute;
+    //     background-color: green;
+    //     width: 100%;
+    //     height: calc(var(--header-padding-top) * 2);
+    //     top: calc(var(--header-padding-top) * 2);
+    //     left: 0;
+    // }
 
     height: 0;
     .header__logo-container {
@@ -62,6 +57,16 @@ header.header {
         @include mobile-and-tablette {
             justify-content: flex-end;
         }
+        .profile__avatar {
+            width: 35px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: filter 40ms ease-in;
+
+            &:hover {
+                filter: brightness(1.2);
+            }
+        }
 
         ul.header__menu-navlinks-list {
             display: flex;
@@ -95,13 +100,13 @@ header.header {
             justify-content: flex-end;
             align-items: center;
             white-space: nowrap;
-            * {
-                margin: $header-elements-margin1;
-            }
             a.header__icon {
                 width: 20px;
+                margin: $header-elements-margin1;
             }
             h2 {
+                margin: $header-elements-margin1;
+
                 @include from-desktop {
                     font-size: $font-size-responsive-header1;
                 }
@@ -110,11 +115,9 @@ header.header {
                 }
             }
             .notification-bell {
-                width: 20px;
-            }
-            img.avatar {
-                width: 35px;
-                border-radius: 5px;
+                margin: $header-elements-margin1;
+
+                // width: 20px;
             }
         }
     }
