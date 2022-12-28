@@ -80,3 +80,21 @@
         }
     }
 }
+
+.profile-open-enter {
+    opacity: 0;
+}
+
+.profile-open-enter-active {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.profile-open-exit {
+    opacity: 1;
+}
+
+.profile-open-exit-active {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
