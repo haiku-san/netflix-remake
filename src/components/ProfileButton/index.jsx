@@ -7,6 +7,7 @@ import {
     faUser,
     faCircleQuestion,
 } from '@fortawesome/free-regular-svg-icons'
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { CSSTransition } from 'react-transition-group'
 
 const penIcon = (
@@ -35,9 +36,21 @@ const questionIcon = (
         className="profile__menu-icon"
     />
 )
+const caretUpIcon = (
+    <FontAwesomeIcon
+        icon={faCaretUp}
+        className="caretUp"
+        fixedWidth
+        transform="shrink-0 grow-15"
+    />
+)
+
+const caretDownIcon = <FontAwesomeIcon icon={faCaretDown} className="caret" />
 
 function ProfileButton() {
     const [isOpen, setIsOpen] = useState(false)
+    const [profileIsClosed, setProfileIsClosed] = useState(true)
+
     const [activeMenu, setActiveMenu] = useState('none')
 
     return (
@@ -56,94 +69,33 @@ function ProfileButton() {
                 setIsOpen(!isOpen)
             }}
         >
-            <img
-                src={netflixAvatar}
-                alt="Netflix avatar"
-                className="profile__avatar"
-            />
-            {/* {isOpen && (
+            <div className="profile__avatar-container">
+                <img
+                    src={netflixAvatar}
+                    alt="Netflix avatar"
+                    className="profile__avatar"
+                />
                 <CSSTransition
-                    in={activeMenu === 'profile'}
-                    unmountOnExit
-                    timeout={500}
-                    classNames="profile-open"
+                    in={profileIsClosed === false}
+                    timeout={100}
+                    classNames="caret-open"
                 >
-                    <div className="profile__menu">
-                        <ul className="profile__menu-list">
-                            <li className="profile__menu-list-element">
-                                {' '}
-                                <img
-                                    src={netflixAvatar}
-                                    alt="Netflix avatar"
-                                    className="profile__avatar--in-menu"
-                                />
-                                <p>Profile Name</p>
-                            </li>
-                            <li className="profile__menu-list-element">
-                                {' '}
-                                <img
-                                    src={netflixAvatar}
-                                    alt="Netflix avatar"
-                                    className="profile__avatar--in-menu"
-                                />
-                                <p>Profile Name</p>
-                            </li>
-                            <li className="profile__menu-list-element">
-                                {' '}
-                                <img
-                                    src={netflixAvatar}
-                                    alt="Netflix avatar"
-                                    className="profile__avatar--in-menu"
-                                />
-                                <p>Profile Name</p>
-                            </li>
-                        </ul>
-
-                        <div className="profile__menu-divider"></div>
-                        <ul className="profile__menu-list">
-                            <li className="profile__menu-list-element">
-                                <div className="profile__menu-icon-container">
-                                    {penIcon}
-                                </div>
-                                <p>Gérer les profils</p>
-                            </li>
-                            <li className="profile__menu-list-element">
-                                <div className="profile__menu-icon-container">
-                                    {faceIcon}
-                                </div>
-
-                                <p>Transférer un profil</p>
-                            </li>
-                            <li className="profile__menu-list-element">
-                                <div className="profile__menu-icon-container">
-                                    {userIcon}
-                                </div>
-
-                                <p>Compte</p>
-                            </li>
-                            <li className="profile__menu-list-element">
-                                <div className="profile__menu-icon-container">
-                                    {questionIcon}
-                                </div>
-
-                                <p>Centre d'aide</p>
-                            </li>
-                        </ul>
-                        <div className="profile__menu-divider"></div>
-                        <div className="profile__menu-button">
-                            <p>Se déconnecter</p>
-                        </div>
-                    </div>
+                    {caretDownIcon}
                 </CSSTransition>
-            )} */}
+            </div>
+
             <CSSTransition
                 in={activeMenu === 'profile'}
                 unmountOnExit
                 timeout={200}
                 classNames="profile-open"
+                onEnter={() => setProfileIsClosed(false)}
+                onExited={() => setProfileIsClosed(true)}
             >
                 <div className="profile__menu">
-                    <ul className="profile__menu-list">
+                    {caretUpIcon}
+
+                    <ul className="profile__menu-list primary">
                         <li className="profile__menu-list-element">
                             {' '}
                             <img
@@ -173,8 +125,7 @@ function ProfileButton() {
                         </li>
                     </ul>
 
-                    <div className="profile__menu-divider"></div>
-                    <ul className="profile__menu-list">
+                    <ul className="profile__menu-list secondary">
                         <li className="profile__menu-list-element">
                             <div className="profile__menu-icon-container">
                                 {penIcon}

@@ -41,15 +41,26 @@ header.header {
         @include mobile-and-tablette {
             justify-content: flex-end;
         }
-        .profile__avatar {
+        .profile__avatar-container {
             position: relative;
-            z-index: 10;
-            width: 35px;
-            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: calc($header-elements-margin-left-and-right1 * 2);
             cursor: pointer;
-            transition: filter 40ms ease-in;
-            &:hover {
-                filter: brightness(1.2);
+            z-index: 10;
+            .profile__avatar {
+                position: relative;
+                z-index: 10;
+                width: 35px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .caret {
+                font-size: $icon-size-1;
+                @include mobile-and-tablette {
+                    display: none;
+                }
             }
         }
 
