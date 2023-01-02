@@ -2,6 +2,7 @@
 
 .profile {
     position: relative;
+
     &__avatar--in-menu {
         width: 35px;
         border-radius: 5px;
@@ -24,12 +25,10 @@
             content: '';
             position: absolute;
             background-color: transparent;
-            z-index: 100;
             height: calc(var(--header-padding-top));
             translate: 0 calc(var(--header-padding-top) * -1);
             width: 250px;
             user-select: none;
-            // pointer-events: none;
         }
         &-list {
             display: flex;

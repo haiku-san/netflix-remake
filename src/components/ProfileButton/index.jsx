@@ -43,7 +43,10 @@ function ProfileButton() {
     return (
         <div
             className="profile"
-            // onClick={() => setIsOpen(!isOpen)}
+            // onClick={() => {
+            //     setActiveMenu('profile')
+            //     setIsOpen(!isOpen)
+            // }}
             onMouseEnter={() => {
                 setActiveMenu('profile')
                 setIsOpen(!isOpen)
@@ -52,8 +55,6 @@ function ProfileButton() {
                 setActiveMenu('none')
                 setIsOpen(!isOpen)
             }}
-            // onMouseEnter={() => setIsOpen(!isOpen)}
-            // onMouseLeave={() => setIsOpen(!isOpen)}
         >
             <img
                 src={netflixAvatar}
@@ -138,7 +139,7 @@ function ProfileButton() {
             <CSSTransition
                 in={activeMenu === 'profile'}
                 unmountOnExit
-                timeout={400}
+                timeout={200}
                 classNames="profile-open"
             >
                 <div className="profile__menu">
