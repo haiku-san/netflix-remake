@@ -16,8 +16,7 @@ import {
     faUser,
     faCircleQuestion,
 } from '@fortawesome/free-regular-svg-icons'
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { CSSTransition } from 'react-transition-group'
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons'
 
 const penIcon = (
     <FontAwesomeIcon
@@ -54,8 +53,6 @@ const caretUpIcon = (
     />
 )
 
-const caretDownIcon = <FontAwesomeIcon icon={faCaretDown} className="caret" />
-
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
@@ -87,7 +84,49 @@ function Header() {
                     <Link to="#">
                         <h2>DIRECT</h2>
                     </Link>
-                    <NotificationAlert />
+                    <NotificationAlert>
+                        <div className="notification">
+                            {caretUpIcon}
+
+                            <ul className="notification__list">
+                                <li className="notification__list-element">
+                                    <div className="notification__image-container">
+                                        <img
+                                            src="https://dummyimage.com/600x400/0acc00/fff.png&text=Placeholderhttps://dummyimage.com/600x400/0acc00/fff.png&text=Placeholder"
+                                            alt="Placeholder"
+                                            className="notification__image"
+                                        />
+                                    </div>
+                                    <div className="notification__content">
+                                        <h3>
+                                            Top 10 des films en France <br />{' '}
+                                            Découvrez les films qui font
+                                            l'unanimité
+                                        </h3>
+                                        <p>Il y a 2 semaines</p>
+                                    </div>
+                                </li>
+                                <li className="notification__list-element">
+                                    {' '}
+                                    <div className="notification__image-container">
+                                        <img
+                                            src="https://dummyimage.com/600x400/0acc00/fff.png&text=Placeholderhttps://dummyimage.com/600x400/0acc00/fff.png&text=Placeholder"
+                                            alt="Placeholder"
+                                            className="notification__image"
+                                        />
+                                    </div>
+                                    <div className="notification__content">
+                                        <h3>
+                                            Top 10 des films en France <br />{' '}
+                                            Découvrez les films qui font
+                                            l'unanimité
+                                        </h3>
+                                        <p>Il y a 2 semaines</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </NotificationAlert>
                     <ProfileButton>
                         <div className="profile__menu">
                             {caretUpIcon}
