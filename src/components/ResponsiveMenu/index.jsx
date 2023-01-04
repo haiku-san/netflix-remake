@@ -1,26 +1,25 @@
 import React, { useState } from 'react'
-import netflixAvatar from '../../assets/images/Netflix-avatar.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { CSSTransition } from 'react-transition-group'
 
 const caretDownIcon = <FontAwesomeIcon icon={faCaretDown} className="caret" />
 
-function ProfileButton({ children }) {
+function ResponsiveMenuButton({ children }) {
     const [isOpen, setIsOpen] = useState(false)
-    const [profileIsClosed, setProfileIsClosed] = useState(true)
+    const [reponsiveMenuIsClosed, setResponsiveMenuIsClosed] = useState(true)
 
     const [activeMenu, setActiveMenu] = useState('none')
 
     return (
         <div
-            className="profile"
+            className="responsive-menu-container"
             // onClick={() => {
-            //     setActiveMenu('profile')
+            //     setActiveMenu('responsive-menu')
             //     setIsOpen(!isOpen)
             // }}
             onMouseEnter={() => {
-                setActiveMenu('profile')
+                setActiveMenu('responsive-menu')
                 setIsOpen(!isOpen)
             }}
             onMouseLeave={() => {
@@ -28,14 +27,10 @@ function ProfileButton({ children }) {
                 setIsOpen(!isOpen)
             }}
         >
-            <div className="profile__avatar-container">
-                <img
-                    src={netflixAvatar}
-                    alt="Netflix avatar"
-                    className="profile__avatar"
-                />
+            <div className="responsive-menu__button-container">
+                <p className="responsive-menu__button">Parcourir</p>
                 <CSSTransition
-                    in={profileIsClosed === false}
+                    in={reponsiveMenuIsClosed === false}
                     timeout={100}
                     classNames="caret-open"
                 >
@@ -44,12 +39,12 @@ function ProfileButton({ children }) {
             </div>
 
             <CSSTransition
-                in={activeMenu === 'profile'}
+                in={activeMenu === 'responsive-menu'}
                 unmountOnExit
                 timeout={200}
-                classNames="profile-open"
-                onEnter={() => setProfileIsClosed(false)}
-                onExited={() => setProfileIsClosed(true)}
+                classNames="responsive-menu-open"
+                onEnter={() => setResponsiveMenuIsClosed(false)}
+                onExited={() => setResponsiveMenuIsClosed(true)}
             >
                 {children}
             </CSSTransition>
@@ -57,4 +52,4 @@ function ProfileButton({ children }) {
     )
 }
 
-export default ProfileButton
+export default ResponsiveMenuButton

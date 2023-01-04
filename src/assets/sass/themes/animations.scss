@@ -23,6 +23,30 @@
     }
 }
 
+.responsive-menu {
+    &-open-enter {
+        opacity: 0;
+    }
+
+    &-open-enter-active {
+        opacity: 1;
+        transition: all 150ms ease;
+    }
+
+    &-open-exit {
+        opacity: 1;
+    }
+
+    &-open-exit-active {
+        opacity: 0;
+        transition: all 150ms ease;
+    }
+    &-open-exit-done {
+        opacity: 0;
+        transition: all 150ms ease;
+    }
+}
+
 .caret {
     &-open-enter {
         transform: rotate(0);
