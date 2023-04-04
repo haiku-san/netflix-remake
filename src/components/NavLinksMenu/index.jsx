@@ -1,43 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import netflixAvatar from '../../assets/images/Netflix-avatar.png'
 
 import { NavLink } from 'react-router-dom'
 import ResponsiveMenu from '../ResponsiveMenu/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
-import {
-    faPenToSquare,
-    faFaceSmile,
-    faUser,
-    faCircleQuestion,
-} from '@fortawesome/free-regular-svg-icons'
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons'
 
-const penIcon = (
-    <FontAwesomeIcon
-        icon={faPenToSquare}
-        size="lg"
-        className="profile__menu-icon"
-    />
-)
-
-const faceIcon = (
-    <FontAwesomeIcon
-        icon={faFaceSmile}
-        size="lg"
-        className="profile__menu-icon"
-    />
-)
-
-const userIcon = (
-    <FontAwesomeIcon icon={faUser} size="lg" className="profile__menu-icon" />
-)
-const questionIcon = (
-    <FontAwesomeIcon
-        icon={faCircleQuestion}
-        size="lg"
-        className="profile__menu-icon"
-    />
-)
 const caretUpIcon = (
     <FontAwesomeIcon
         icon={faCaretUp}
@@ -46,8 +13,6 @@ const caretUpIcon = (
         transform="shrink-0 grow-15"
     />
 )
-
-const caretDownIcon = <FontAwesomeIcon icon={faCaretDown} className="caret" />
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window

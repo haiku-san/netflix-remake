@@ -1,1 +1,36 @@
 /**/
+.hero-section {
+    height: 40vw;
+    position: relative;
+
+    main {
+        * {
+            margin: 0;
+        }
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 40rem;
+        justify-content: center;
+        position: absolute;
+        bottom: 30%;
+        left: 4%;
+        color: white;
+        h2 {
+            font-size: 4rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+    }
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
+    > img {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+    }
+}

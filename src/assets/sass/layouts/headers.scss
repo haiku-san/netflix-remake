@@ -2,10 +2,12 @@
 
 header.header {
     display: flex;
+    // position: absolute;
+    // width: calc(100% - var(--header-padding) / 2);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(42, 42, 42);
+    background-color: rgba(42, 42, 42);
     color: white;
     padding: var(--header-padding);
 
@@ -32,6 +34,8 @@ header.header {
     }
 
     menu.header__menu {
+        z-index: 10;
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
