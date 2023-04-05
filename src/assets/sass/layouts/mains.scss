@@ -41,9 +41,27 @@
         z-index: 5;
         position: absolute;
         top: 0;
-        left: 0;
+        bottom: 0;
+        right: 26%;
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        background: linear-gradient(77deg, rgba(0, 0, 0, 0.6), transparent 85%);
+    }
+    &__fadeaway {
+        position: absolute;
+        z-index: 6;
+
+        height: 30%;
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(
+            180deg,
+            hsla(0, 0%, 8%, 0) 0,
+            hsla(0, 0%, 8%, 0.15) 15%,
+            hsla(0, 0%, 8%, 0.35) 29%,
+            hsla(0, 0%, 8%, 0.58) 44%,
+            #141414 68%,
+            #141414
+        );
     }
 }

@@ -1,1 +1,45 @@
 /**/
+.row {
+    display: flex;
+    position: relative;
+    z-index: 8;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 4rem;
+    color: white;
+    translate: 0 -10rem;
+    h2 {
+        font-size: $font-size-responsive-row1;
+        font-weight: 600;
+        opacity: 0.9;
+        transition: opacity ease-in-out 150ms;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__posters {
+        display: flex;
+        // overflow-y: hidden;
+        overflow-x: scroll;
+        gap: 0.8rem;
+        padding: 0.5rem;
+        margin-left: -0.5rem;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &__poster {
+        max-height: 9rem;
+        object-fit: contain;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: transform ease-in-out 450ms;
+        &:hover {
+            transform: scale(1.05);
+            opacity: 1;
+            z-index: 10;
+        }
+    }
+}

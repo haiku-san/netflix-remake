@@ -1,25 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import CTA from '../CTA/index'
-import axios from '../../utils/axios'
-import requests from '../../utils/requests'
 
-function HeroSection() {
-    const [movie, setMovie] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-            const request = await axios.get(requests.fetchNetflixOriginals)
-            setMovie(
-                request.data.results[
-                    Math.floor(Math.random() * request.data.results.length - 1)
-                ]
-            )
-            return request
-        }
-
-        fetchData()
-    }, [])
-
+function HeroSection({ movie }) {
     function truncate(string, n) {
         return string?.length > n ? string.substr(0, n - 1) + '...' : string
     }
@@ -45,6 +27,7 @@ function HeroSection() {
                 src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
                 alt="placeholder"
             />
+            <div className="hero-section__fadeaway"></div>
         </section>
     )
 }
