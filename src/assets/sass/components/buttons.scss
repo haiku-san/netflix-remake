@@ -11,8 +11,13 @@
     font-weight: 600;
     border-radius: 5px;
     position: relative;
+    transition: filter ease-in-out 70ms;
+    cursor: pointer;
     img {
         height: 2rem;
+    }
+    &:hover {
+        filter: opacity(0.8);
     }
 }
 .cta-primary,

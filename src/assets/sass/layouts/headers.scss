@@ -2,13 +2,15 @@
 
 header.header {
     display: flex;
-    // position: absolute;
-    // width: calc(100% - var(--header-padding) / 2);
+    position: absolute;
+    left: 0;
+    right: 0;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(42, 42, 42);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
     color: white;
+    z-index: 10;
     padding: var(--header-padding);
 
     height: 0;
@@ -18,6 +20,8 @@ header.header {
         a.header__logo-link {
             background-color: blue;
             img.header__logo {
+                z-index: 10;
+                position: relative;
                 object-fit: cover;
                 aspect-ratio: 16 / 9;
                 @include from-desktop {

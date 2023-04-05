@@ -20,12 +20,14 @@ function HeroSection() {
         fetchData()
     }, [])
 
-    console.log(movie)
+    function truncate(string, n) {
+        return string?.length > n ? string.substr(0, n - 1) + '...' : string
+    }
     return (
         <section className="hero-section">
             <main>
-                <h2>{movie.name}</h2>
-                <p>{movie.overview}</p>
+                <h2>{movie?.title || movie?.name || movie?.original_name}</h2>
+                <p>{truncate(movie?.overview, 200)}</p>
                 <ul className="hero-section__buttons">
                     <li>
                         <CTA title="Lecture" icon="play" type="primary" />

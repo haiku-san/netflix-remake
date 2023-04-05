@@ -1,6 +1,6 @@
 /**/
 .hero-section {
-    height: 40vw;
+    height: 50vw;
     position: relative;
 
     main {
@@ -19,9 +19,11 @@
         color: white;
         h2 {
             font-size: 4rem;
+            text-shadow: $shadow-text-1;
         }
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            text-shadow: $shadow-text-1;
         }
     }
     &__buttons {
