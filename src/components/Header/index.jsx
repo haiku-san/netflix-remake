@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import NotificationAlert from '../NotificationAlert/index'
@@ -17,6 +17,9 @@ import {
     faCircleQuestion,
 } from '@fortawesome/free-regular-svg-icons'
 import { faCaretUp } from '@fortawesome/free-solid-svg-icons'
+
+import axios from '../../utils/axios'
+import requests from '../../utils/requests'
 
 const penIcon = (
     <FontAwesomeIcon
@@ -59,10 +62,55 @@ const caretUpIcon = (
 // const searchIcon = <FontAwesomeIcon icon={faMagnifyingGlass} />
 
 function Header() {
+    const [movie1, setMovie1] = useState([])
+    const [movie2, setMovie2] = useState([])
+
+    const [opaque, isOpaque] = useState(false)
+
+    const transitionHeader = () => {
+        if (window.scrollY > 100) {
+            isOpaque(true)
+        } else {
+            isOpaque(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', transitionHeader)
+        return () => window.removeEventListener('scroll', transitionHeader)
+    }, [])
+
+    useEffect(() => {
+        async function fetchData() {
+            const request1 = await axios.get(requests.fetchTopRated)
+            const request2 = await axios.get(requests.fetchTopRated)
+            setMovie1(
+                request1.data.results[
+                    Math.floor(Math.random() * request1.data.results.length - 1)
+                ]
+            )
+            setMovie2(
+                request2.data.results[
+                    Math.floor(Math.random() * request2.data.results.length - 1)
+                ]
+            )
+            return [request1, request2]
+        }
+
+        fetchData()
+    }, [])
+
     return (
-        <header className="header">
+        <header className={opaque ? 'header is-opaque' : 'header'}>
             <div className="header__logo-container">
-                <Link className="header__logo-link" to="/">
+                <Link
+                    className="header__logo-link"
+                    to="/"
+                    onClick={() => {
+                        window.location.reload(true)
+                        window.location.assign('/')
+                    }}
+                >
                     <img
                         className="header__logo"
                         src={netflixLogo}
@@ -92,8 +140,12 @@ function Header() {
                                 <li className="notification__list-element">
                                     <div className="notification__image-container">
                                         <img
-                                            src="https://dummyimage.com/600x400/0acc00/fff.png&text=Placeholderhttps://dummyimage.com/600x400/0acc00/fff.png&text=Placeholder"
-                                            alt="Placeholder"
+                                            src={`https://image.tmdb.org/t/p/original/${movie1?.backdrop_path}`}
+                                            alt={`${
+                                                movie1?.title ||
+                                                movie1?.name ||
+                                                movie1?.original_name
+                                            } cover`}
                                             className="notification__image"
                                         />
                                     </div>
@@ -103,23 +155,27 @@ function Header() {
                                             Découvrez les films qui font
                                             l'unanimité
                                         </h3>
-                                        <p>Il y a 2 semaines</p>
+                                        <p>Il y a 3 jours</p>
                                     </div>
                                 </li>
                                 <li className="notification__list-element">
                                     {' '}
                                     <div className="notification__image-container">
                                         <img
-                                            src="https://dummyimage.com/600x400/0acc00/fff.png&text=Placeholderhttps://dummyimage.com/600x400/0acc00/fff.png&text=Placeholder"
-                                            alt="Placeholder"
+                                            src={`https://image.tmdb.org/t/p/original/${movie2?.backdrop_path}`}
+                                            alt={`${
+                                                movie1?.title ||
+                                                movie1?.name ||
+                                                movie1?.original_name
+                                            } cover`}
                                             className="notification__image"
                                         />
                                     </div>
                                     <div className="notification__content">
                                         <h3>
-                                            Top 10 des films en France <br />{' '}
-                                            Découvrez les films qui font
-                                            l'unanimité
+                                            Ces titres quittent bientôt le
+                                            catalogue Netflix, le temps
+                                            presse...
                                         </h3>
                                         <p>Il y a 2 semaines</p>
                                     </div>
@@ -131,33 +187,58 @@ function Header() {
                         <div className="profile__menu">
                             {caretUpIcon}
                             <ul className="profile__menu-list primary">
-                                <li className="profile__menu-list-element">
-                                    {' '}
-                                    <img
-                                        src={netflixAvatar}
-                                        alt="Netflix avatar"
-                                        className="profile__avatar--in-menu"
-                                    />
-                                    <p>Profile Name</p>
-                                </li>
-                                <li className="profile__menu-list-element">
-                                    {' '}
-                                    <img
-                                        src={netflixAvatar}
-                                        alt="Netflix avatar"
-                                        className="profile__avatar--in-menu"
-                                    />
-                                    <p>Profile Name</p>
-                                </li>
-                                <li className="profile__menu-list-element">
-                                    {' '}
-                                    <img
-                                        src={netflixAvatar}
-                                        alt="Netflix avatar"
-                                        className="profile__avatar--in-menu"
-                                    />
-                                    <p>Profile Name</p>
-                                </li>
+                                <Link
+                                    to="/"
+                                    onClick={() => {
+                                        window.location.reload(true)
+                                        window.location.assign('/')
+                                    }}
+                                >
+                                    <li className="profile__menu-list-element">
+                                        {' '}
+                                        <img
+                                            src={netflixAvatar}
+                                            alt="Netflix avatar"
+                                            className="profile__avatar--in-menu"
+                                        />
+                                        <p>Philippe</p>
+                                    </li>
+                                </Link>
+                                <Link
+                                    to="/"
+                                    onClick={() => {
+                                        window.location.reload(true)
+                                        window.location.assign('/')
+                                    }}
+                                >
+                                    <li className="profile__menu-list-element">
+                                        {' '}
+                                        <img
+                                            src={netflixAvatar}
+                                            alt="Netflix avatar"
+                                            className="profile__avatar--in-menu"
+                                        />
+                                        <p>Géraldine</p>
+                                    </li>
+                                </Link>
+
+                                <Link
+                                    to="/"
+                                    onClick={() => {
+                                        window.location.reload(true)
+                                        window.location.assign('/')
+                                    }}
+                                >
+                                    <li className="profile__menu-list-element">
+                                        {' '}
+                                        <img
+                                            src={netflixAvatar}
+                                            alt="Netflix avatar"
+                                            className="profile__avatar--in-menu"
+                                        />
+                                        <p>Lilou</p>
+                                    </li>
+                                </Link>
                             </ul>
 
                             <ul className="profile__menu-list secondary">

@@ -4,17 +4,18 @@
     justify-content: space-evenly;
     white-space: nowrap;
     align-items: center;
-    gap: 1rem;
+    gap: $gap-responsive-hero1;
     border: none;
-    padding: 0.6rem 1.5rem;
-    font-size: 1.05rem;
+    padding: $padding-responsive-cta-top-bottom1
+        $padding-responsive-cta-left-right1;
+    font-size: $font-size-responsive-hero3;
     font-weight: 600;
     border-radius: 5px;
     position: relative;
     transition: filter ease-in-out 70ms;
     cursor: pointer;
     img {
-        height: 2rem;
+        height: $height-responsive-cta-icon1;
     }
     &:hover {
         filter: opacity(0.8);

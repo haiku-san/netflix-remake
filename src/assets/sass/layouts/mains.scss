@@ -7,22 +7,22 @@
         * {
             margin: 0;
         }
-        z-index: 10;
+        z-index: 6;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        width: 40rem;
+        gap: $gap-responsive-hero1;
+        width: 40vw;
         justify-content: center;
         position: absolute;
         bottom: 30%;
         left: 4%;
         color: white;
         h2 {
-            font-size: 4rem;
+            font-size: $font-size-responsive-hero1;
             text-shadow: $shadow-text-1;
         }
         p {
-            font-size: 1.1rem;
+            font-size: $font-size-responsive-hero2;
             text-shadow: $shadow-text-1;
         }
     }
@@ -33,6 +33,17 @@
     > img {
         position: absolute;
         object-fit: cover;
+        object-position: 50% 0%;
         height: 100%;
+    }
+    &::after {
+        content: '';
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
     }
 }

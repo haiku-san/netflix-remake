@@ -2,7 +2,7 @@
 
 header.header {
     display: flex;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     flex-direction: row;
@@ -12,8 +12,13 @@ header.header {
     color: white;
     z-index: 10;
     padding: var(--header-padding);
+    transition: all ease-in-out 600ms;
 
     height: 0;
+    &.is-opaque {
+        background-color: rgb(20, 20, 20);
+        transition: all ease-in-out 200ms;
+    }
     .header__logo-container {
         margin-right: $logo-margin-right-responsive-header1;
 
