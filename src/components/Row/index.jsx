@@ -3,8 +3,25 @@ import axios from '../../utils/axios'
 
 function Row({ title = 'row title', fetchUrl, isTopTen = false }) {
     const [movies, setMovies] = useState([])
+    const [windowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+    })
 
     const base_url = 'https://image.tmdb.org/t/p/original/'
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+            })
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
     useEffect(() => {
         async function fetchData() {
@@ -16,15 +33,31 @@ function Row({ title = 'row title', fetchUrl, isTopTen = false }) {
     }, [fetchUrl])
 
     useEffect(() => {
+        console.log(movies.length)
         const rowSliders = document.querySelectorAll('.row')
         rowSliders.forEach((rowSlider) => {
             const rowSliderStyle = getComputedStyle(rowSlider)
-            rowSlider.style.setProperty(
-                '--slider-index',
+            const itemsPerRow = parseInt(
+                rowSliderStyle.getPropertyValue('--items-number')
+            )
+
+            const numberOfItems = movies.length
+            const numberOfColumns = numberOfItems / itemsPerRow
+            let currentSliderIndex = parseInt(
                 rowSliderStyle.getPropertyValue('--slider-index')
             )
+            rowSlider.style.setProperty('--slider-index', currentSliderIndex)
+            if (
+                currentSliderIndex !== 0 &&
+                currentSliderIndex > numberOfColumns - 1
+            ) {
+                rowSlider.style.setProperty(
+                    '--slider-index',
+                    numberOfColumns - 1
+                )
+            }
         })
-    }, [])
+    }, [movies, windowSize])
 
     function handleSlider(e) {
         const row = e.currentTarget.parentNode
@@ -37,6 +70,7 @@ function Row({ title = 'row title', fetchUrl, isTopTen = false }) {
         const currentSliderIndex = parseInt(
             rowSlider.style.getPropertyValue('--slider-index')
         )
+
         if (e.target.className === 'previous-button') {
             if (currentSliderIndex - 1 < 0) {
                 rowSlider.style.setProperty(

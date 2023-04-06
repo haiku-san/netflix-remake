@@ -11,6 +11,12 @@
     padding: 1rem 0;
     color: white;
     translate: 0 -10rem;
+    @include tablette-only {
+        --items-number: 4;
+    }
+    @include mobile-only {
+        --items-number: 3;
+    }
     h2 {
         font-size: $font-size-responsive-row1;
         font-weight: 600;
@@ -25,7 +31,11 @@
     &__slider {
         display: flex;
         flex: 0 0;
-        overflow-x: hidden;
+        overflow-x: scroll;
+
+        @include from-desktop {
+            overflow-x: hidden;
+        }
         button {
             position: relative;
             width: 4rem;
