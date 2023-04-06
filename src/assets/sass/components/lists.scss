@@ -1,45 +1,65 @@
 /**/
 .row {
+    --items-number: 5;
+    --space-between-items: 1rem;
+    --slider-index: 0;
     display: flex;
     position: relative;
     z-index: 8;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1rem 4rem;
+    padding: 1rem 0;
     color: white;
     translate: 0 -10rem;
     h2 {
         font-size: $font-size-responsive-row1;
         font-weight: 600;
         opacity: 0.9;
+        padding: 0 4rem;
         transition: opacity ease-in-out 150ms;
         cursor: pointer;
         &:hover {
             opacity: 1;
         }
     }
+    &__slider {
+        display: flex;
+        flex: 0 0;
+        overflow-x: hidden;
+        button {
+            position: relative;
+            width: 4rem;
+            z-index: 3;
+        }
+    }
     &__posters {
         display: flex;
-        // overflow-y: hidden;
-        overflow-x: scroll;
-        gap: 0.8rem;
-        padding: 0.5rem;
-        margin-left: -0.5rem;
+        padding: 0.5rem 0;
+        gap: var(--space-between-items);
+        width: calc(100% - 4rem / 2);
+        translate: calc(((-100% - 2rem / 2)) * var(--slider-index)) 0;
+        transition: all 300ms ease-in-out;
         &::-webkit-scrollbar {
             display: none;
         }
     }
     &__poster {
-        max-height: 9rem;
+        flex: 0 0
+            calc(
+                (100% - (var(--items-number) - 1) * var(--space-between-items)) /
+                    var(--items-number)
+            );
+        max-width: calc(
+            (100% - (var(--items-number) - 1) * var(--space-between-items)) /
+                var(--items-number)
+        );
+        aspect-ratio: 16 / 9;
         object-fit: contain;
         border-radius: 5px;
         cursor: pointer;
         opacity: 0.9;
-        transition: transform ease-in-out 450ms;
-        &:hover {
-            transform: scale(1.05);
-            opacity: 1;
-            z-index: 10;
-        }
+        transition: transform ease-in-out 150ms;
+        position: relative;
+        z-index: 2;
     }
 }

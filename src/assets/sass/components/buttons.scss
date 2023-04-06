@@ -35,3 +35,64 @@
     background-color: rgba(109, 109, 110, 0.7);
     color: white;
 }
+
+%slider-controls {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        background: hsla(0, 0%, 8%, 0.5);
+        transition: all ease-in-out 150ms;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+    }
+    &::after {
+        content: '';
+        position: relative;
+        transition: all ease-in-out 150ms;
+        color: white;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        &:before {
+            background: hsla(0, 0%, 8%, 0.7);
+        }
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+
+.previous-button,
+.next-button {
+    @extend %slider-controls;
+}
+
+.previous-button {
+    &::after {
+        background: url('../../images/previous.png');
+        height: 2.5rem;
+        width: 2.5rem;
+        background-size: cover;
+    }
+}
+.next-button {
+    &::after {
+        background: url('../../images/next.png');
+        height: 2.5rem;
+        width: 2.5rem;
+        background-size: cover;
+    }
+}
