@@ -2,7 +2,10 @@
 .hero-section {
     height: 50vw;
     position: relative;
-
+    --padding-left: #{$left-padding-hero1};
+    @include mobile-only {
+        display: none;
+    }
     main {
         * {
             margin: 0;
@@ -15,8 +18,11 @@
         justify-content: center;
         position: absolute;
         bottom: 30%;
-        left: 4%;
+        left: var(--padding-left);
         color: white;
+        @include mobile-only {
+            display: none;
+        }
         h2 {
             font-size: $font-size-responsive-hero1;
             text-shadow: $shadow-text-1;
@@ -24,6 +30,9 @@
         p {
             font-size: $font-size-responsive-hero2;
             text-shadow: $shadow-text-1;
+            @include mobile-and-tablette {
+                display: none;
+            }
         }
     }
     &__buttons {

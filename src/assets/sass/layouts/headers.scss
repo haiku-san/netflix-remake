@@ -51,9 +51,9 @@ header.header {
         align-items: center;
         white-space: nowrap;
         width: 100%;
-        // @include mobile-and-tablette {
-        //     justify-content: flex-end;
-        // }
+        @include mobile-only {
+            justify-content: flex-end;
+        }
         .profile__avatar-container {
             position: relative;
             display: flex;
@@ -62,6 +62,7 @@ header.header {
             gap: calc($header-elements-margin-left-and-right1 * 2);
             cursor: pointer;
             z-index: 10;
+
             .profile__avatar {
                 position: relative;
                 z-index: 10;
@@ -92,9 +93,10 @@ header.header {
                 font-size: $font-size-responsive-header2;
             }
             @include mobile-only {
-                font-size: $font-size-responsive-header3;
+                font-size: $font-size-responsive-header2;
             }
         }
+
         ul.header__menu-navlinks-list {
             display: flex;
             flex-direction: row;
@@ -105,6 +107,7 @@ header.header {
             margin: 0;
             width: fit-content;
             gap: calc($header-elements-margin-left-and-right1 * 2);
+
             li.header__menu-navlinks-item {
                 @include from-desktop {
                     font-size: $font-size-responsive-header1;
@@ -116,9 +119,6 @@ header.header {
                     font-size: $font-size-responsive-header3;
                 }
             }
-            // @include mobile-and-tablette {
-            //     display: none;
-            // }
         }
         .header__right-part {
             display: flex;
@@ -127,6 +127,9 @@ header.header {
             align-items: center;
             white-space: nowrap;
             gap: calc($header-elements-margin-left-and-right1 * 2);
+            @include mobile-only {
+                display: none;
+            }
             a.header__icon {
                 width: 20px;
             }

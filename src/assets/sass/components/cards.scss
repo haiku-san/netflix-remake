@@ -131,18 +131,21 @@
 }
 
 .responsive-menu-container {
+    --responsive-menu-width: 230px;
     position: relative;
-
     .responsive-menu {
         position: absolute;
         color: white;
-        width: 250px;
+        width: var(--responsive-menu-width);
         font-size: 13px;
         font-weight: 400;
         margin: 0;
         margin-top: 1.5rem;
         transform: translateX(calc(-50% + 3.5rem / 2))
             translateY(calc(var(--header-padding-top) - 35px / 2));
+        @include mobile-only {
+            transform: translateX(calc(-100% + 3.5rem));
+        }
         .caretUp {
             position: absolute;
             color: rgb(255 255 255 / 0.8);
@@ -152,7 +155,14 @@
             right: 0;
 
             transform: translateY(calc($icon-size-1 - 1.6rem))
-                translateX(calc(250px / -2 + $icon-size-1 / 2));
+                translateX(
+                    calc(var(--responsive-menu-width) / -2 + $icon-size-1 / 2)
+                );
+            @include mobile-only {
+                translate: calc(
+                    var(--responsive-menu-width) / 2 - $icon-size-1 / 2
+                );
+            }
         }
         &::before {
             content: '';
@@ -160,7 +170,7 @@
             background-color: transparent;
             height: calc(var(--header-padding-top));
             translate: 0 calc(var(--header-padding-top) * -1);
-            width: 250px;
+            width: var(--responsive-menu-width);
             user-select: none;
         }
         &::after {
@@ -169,7 +179,7 @@
             top: 0;
             background-color: rgb(255 255 255 / 1);
             height: 0.15rem;
-            width: 250px;
+            width: var(--responsive-menu-width);
             user-select: none;
             z-index: 10;
         }
@@ -189,15 +199,15 @@
             justify-content: center;
             align-items: center;
             z-index: 10;
-            // background-color: rgba(0, 0, 0, 0.832);
             width: 100%;
             height: 100%;
             padding: 1.75rem 0;
             text-align: center;
             cursor: pointer;
             margin: 0;
-            // border: red 2px solid;
-
+            @include mobile-only {
+                padding: 1.5rem 0;
+            }
             &::before {
                 content: '';
                 z-index: -1;

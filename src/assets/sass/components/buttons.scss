@@ -14,6 +14,7 @@
     position: relative;
     transition: filter ease-in-out 70ms;
     cursor: pointer;
+
     img {
         height: $height-responsive-cta-icon1;
     }
@@ -83,16 +84,16 @@
 .previous-button {
     &::after {
         background: url('../../images/previous.png');
-        height: 2.5rem;
-        width: 2.5rem;
+        height: calc(var(--slider-controls-width) / 2);
+        width: calc(var(--slider-controls-width) / 2);
         background-size: cover;
     }
 }
 .next-button {
     &::after {
         background: url('../../images/next.png');
-        height: 2.5rem;
-        width: 2.5rem;
+        height: calc(var(--slider-controls-width) / 2);
+        width: calc(var(--slider-controls-width) / 2);
         background-size: cover;
     }
 }
