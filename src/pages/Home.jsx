@@ -38,6 +38,22 @@ function Home() {
                 fetchUrl={requests.fetchTopRated}
                 isTopTen={false}
             />
+
+            <Row
+                title="Films d'action"
+                fetchUrl={requests.fetchActionMovies}
+                isTopTen={false}
+            />
+            <Row
+                title="Comédies"
+                fetchUrl={requests.fetchComedyMovies}
+                isTopTen={false}
+            />
+            <Row
+                title="Romances"
+                fetchUrl={requests.fetchRomanceMovies}
+                isTopTen={false}
+            />
         </div>
     )
 }

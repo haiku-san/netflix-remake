@@ -111,7 +111,9 @@ function Row({ title = 'row title', fetchUrl, isTopTen = false }) {
                             <Movie
                                 className="row__poster"
                                 keyValue={movie.id}
-                                src={`${base_url}${movie.backdrop_path}`}
+                                src={`${base_url}${
+                                    movie.backdrop_path || movie.poster_path
+                                }`}
                                 alt={`${movie.name} cover`}
                             />
                         ))}
