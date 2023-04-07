@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from '../../utils/axios'
 
+import Movie from '../Movie/index'
+
 function Row({ title = 'row title', fetchUrl, isTopTen = false }) {
     const [movies, setMovies] = useState([])
     const [windowSize, setWindowSize] = useState({
@@ -98,21 +100,22 @@ function Row({ title = 'row title', fetchUrl, isTopTen = false }) {
     return (
         <div className={isTopTen ? 'row is-top-ten' : 'row'}>
             <h2>{title}</h2>
-            <div className="row__slider">
+            <div className="row__slider-box">
                 <button
                     className="previous-button"
                     onClick={(e) => handleSlider(e)}
                 ></button>
-
-                <div className="row__posters">
-                    {movies.map((movie) => (
-                        <img
-                            className="row__poster"
-                            key={movie.id}
-                            src={`${base_url}${movie.backdrop_path}`}
-                            alt={`${movie.name} cover`}
-                        />
-                    ))}
+                <div className="row__slider">
+                    <div className="row__posters">
+                        {movies.map((movie) => (
+                            <Movie
+                                className="row__poster"
+                                keyValue={movie.id}
+                                src={`${base_url}${movie.backdrop_path}`}
+                                alt={`${movie.name} cover`}
+                            />
+                        ))}
+                    </div>
                 </div>
                 <button
                     className="next-button"

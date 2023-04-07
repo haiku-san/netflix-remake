@@ -11,6 +11,8 @@
     padding: 1rem 0;
     color: white;
     translate: 0 -10rem;
+    overflow-y: visible;
+
     @include tablette-only {
         --items-number: 4;
     }
@@ -28,27 +30,43 @@
             opacity: 1;
         }
     }
+    &__slider-box {
+        display: flex;
+        width: 100%;
+        flex: 0 0;
+        height: 100%;
+        position: relative;
+        justify-content: center;
+
+        button {
+            position: absolute;
+            width: 4rem;
+            height: 100%;
+            z-index: 3;
+            &.previous-button {
+                left: 0;
+            }
+            &.next-button {
+                right: 0;
+            }
+        }
+    }
     &__slider {
         display: flex;
-        flex: 0 0;
+        justify-content: center;
         overflow-x: scroll;
-
         @include from-desktop {
             overflow-x: hidden;
-        }
-        button {
-            position: relative;
-            width: 4rem;
-            z-index: 3;
         }
     }
     &__posters {
         display: flex;
         padding: 0.5rem 0;
         gap: var(--space-between-items);
-        width: calc(100% - 4rem / 2);
+        width: calc(100% - 4rem * 2);
         translate: calc(((-100% - 2rem / 2)) * var(--slider-index)) 0;
         transition: all 300ms ease-in-out;
+
         &::-webkit-scrollbar {
             display: none;
         }
@@ -66,7 +84,6 @@
         aspect-ratio: 16 / 9;
         object-fit: contain;
         border-radius: 5px;
-        cursor: pointer;
         opacity: 0.9;
         transition: transform ease-in-out 150ms;
         position: relative;
