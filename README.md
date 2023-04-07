@@ -1,14 +1,21 @@
 # Netflix frontend remake
 
 Personal remake of the Netflix frontend webapp using React.
-This project is currently paused on. You can see my current version on the "develop" branch.
+This project has been an effective way to practice core frontend principles like :
 
-I plan on finishing this project sometime soon.
+-   building a fully responsive webpage
+-   fetching data from API & updating frontend
+-   building reusable & maintainable components
+-   further understanding of React hooks (useState, useEffect...)
 
+## Demo
+
+[Website link](https://netflix.elandaloussi.fr)
 
 ## Repo cloning
 
 Clone the Github repo
+
 ```bash
   git clone https://github.com/haiku-san/netflix-remake/tree/develop
 ```
@@ -18,6 +25,7 @@ Clone the Github repo
 You should install Yarn locally to your machine.
 
 Launch the development server
+
 ```bash
   cd [directory]
   yarn start

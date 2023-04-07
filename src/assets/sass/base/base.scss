@@ -1,0 +1,47 @@
+/**/
+:root {
+    @extend %font__content !optional;
+    @include from-desktop {
+        --header-padding: #{$header-padding-responsive-top-and-bottom1} #{$header-padding-responsive-left-and-right1};
+        --header-padding-top: #{$header-padding-responsive-top-and-bottom1};
+        --color: #{$color-test1};
+    }
+    @include tablette-only {
+        --header-padding: #{$header-padding-responsive-top-and-bottom2} #{$header-padding-responsive-left-and-right2};
+        --header-padding-top: #{$header-padding-responsive-top-and-bottom2};
+        --color: #{$color-test2};
+    }
+    @include mobile-only {
+        --header-padding: #{$header-padding-responsive-top-and-bottom3} #{$header-padding-responsive-left-and-right3};
+        --header-padding-top: #{$header-padding-responsive-top-and-bottom3};
+        --color: #{$color-test3};
+    }
+    user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+ul,
+ol,
+menu {
+    list-style-type: none;
+    padding: 0;
+}
+figure {
+    margin: 0;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
