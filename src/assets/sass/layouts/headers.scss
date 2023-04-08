@@ -13,7 +13,6 @@ header.header {
     z-index: 10;
     padding: var(--header-padding);
     transition: all ease-in-out 600ms;
-
     height: 0;
     &.is-opaque {
         background-color: rgb(20, 20, 20);
@@ -86,6 +85,7 @@ header.header {
             cursor: pointer;
             z-index: 10;
             width: 3.5rem;
+
             @include from-desktop {
                 font-size: $font-size-responsive-header1;
             }
@@ -94,6 +94,7 @@ header.header {
             }
             @include mobile-only {
                 font-size: $font-size-responsive-header2;
+                display: none;
             }
         }
 

@@ -46,6 +46,9 @@
             width: var(--slider-controls-width);
             height: 100%;
             z-index: 3;
+            @include mobile-only {
+                display: none;
+            }
             &.previous-button {
                 left: 0;
             }
@@ -87,15 +90,18 @@
             (100% - (var(--items-number) - 1) * var(--space-between-items)) /
                 var(--items-number)
         );
-        border-radius: 5px;
         opacity: 0.9;
         transition: transform ease-in-out 150ms;
         position: relative;
         z-index: 2;
+
         > img {
             border-radius: 5px;
             aspect-ratio: 16 / 9;
             object-fit: cover;
+            @include mobile-only {
+                border-radius: 0;
+            }
         }
     }
 }

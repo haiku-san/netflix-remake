@@ -12,7 +12,7 @@
         --color: #{$color-test2};
     }
     @include mobile-only {
-        --header-padding: #{$header-padding-responsive-top-and-bottom3} #{$header-padding-responsive-left-and-right3};
+        --header-padding: #{$header-padding-responsive-top-and-bottom3} #{$left-padding-hero1};
         --header-padding-top: #{$header-padding-responsive-top-and-bottom3};
         --color: #{$color-test3};
     }
